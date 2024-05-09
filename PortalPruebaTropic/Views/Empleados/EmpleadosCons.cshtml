@@ -1,0 +1,43 @@
+﻿
+@model List<BD.Model.Empleado>
+
+<div class="card">
+    <div class="card-body">
+        <table id="TblEmpleado" class="table table-bordered table-striped table-responsive-sm w-100" style="font-size:14px">
+            <thead>
+                <tr>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">Nombre</th>
+                    <th class="text-center">SeEmp</th>
+                    <th class="text-center">FechNac</th>
+                    <th class="text-center">FechInco</th>
+                    <th class="text-center">SalEmp</th>
+                    <th class="text-center">Comision</th>
+                    <th class="text-center">Cargo</th>
+                    <th class="text-center">JefeId</th>
+                    <th class="text-center">CodDpt</th>
+                    <th class="text-center">Departamento</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {     
+                    <tr>
+                        <td class="text-start">@item.nDIEmp</td>
+                        <td class="text-start">@item.nomEmp</td>
+                        <td class="text-start">@item.seEmp</td>
+                        <td class="text-start">@item.fecNac</td>
+                        <td class="text-center">@item.fecIncorporacion</td>
+                        <td class="text-center">@item.salEmp</td>
+                        <td class="text-center">@item.comisionE</td>
+                        <td class="text-center">@item.cargoE</td>
+                        <td class="text-center">@item.jefeId</td>
+                        <td class="text-center">@item.codeDepto</td>
+                        <td class="text-center" onclick="ModalDepartamento('@item.departamentos.codDepto','@item.departamentos.nombreDpto',
+                                                                    '@item.departamentos.ciudad','@item.departamentos.codDirector')"><button class="btn btn-success">Consulta</button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
